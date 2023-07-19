@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "a7c2c753-367b-4c70-9c4d-575953da3f00",
+		"name": "MobileManager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Book Phone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/phones/1/book?bookedBy=user1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phones",
+						"1",
+						"book"
+					],
+					"query": [
+						{
+							"key": "bookedBy",
+							"value": "user1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return Phone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/phones/1/return",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phones",
+						"1",
+						"return"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Phones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/phones",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phones"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

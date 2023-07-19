@@ -8,6 +8,8 @@ import reactor.core.publisher.Mono;
 @Service
 public class FonoApiService {
 
+  public static final String DEVICE = "device";
+  public static final String BRAND = "brand";
   private final WebClient webClient;
 
   public FonoApiService() {
@@ -17,8 +19,8 @@ public class FonoApiService {
   public Mono<FonoApiDto> getPhoneDataFromFonoApi(String device, String brand) {
     return this.webClient.get()
         .uri(uriBuilder -> uriBuilder.path("/getdevice")
-            .queryParam("device", device)
-            .queryParam("brand", brand)
+            .queryParam(DEVICE, device)
+            .queryParam(BRAND, brand)
             .build())
         .retrieve()
         .bodyToMono(FonoApiDto.class);

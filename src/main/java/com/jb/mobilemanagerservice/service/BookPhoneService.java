@@ -14,9 +14,6 @@ import reactor.core.publisher.Mono;
 @Service
 public class BookPhoneService {
 
-  public static final PhoneDetails DEFAULT_PHONE_DETAILS = new PhoneDetails("Default Technology",
-      "Default 2G Bands", "Default 3G Bands", "Default 4G Bands");
-
   private final PhoneRepository phoneRepository;
   private final FonoApiService fonoApiService;
 
@@ -54,7 +51,9 @@ public class BookPhoneService {
           return Mono.just(phoneDetails);
         })
         .onErrorResume(e -> Mono.just(
-            Objects.requireNonNullElse(phone.getPhoneDetails(), DEFAULT_PHONE_DETAILS))
+            Objects.requireNonNullElse(phone.getPhoneDetails(),
+                new PhoneDetails("Default Technology",
+                    "Default 2G Bands", "Default 3G Bands", "Default 4G Bands")))
         )
         .block();
   }
